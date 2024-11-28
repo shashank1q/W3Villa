@@ -5,6 +5,11 @@ const authRoutes = require('./routes/authRoutes');
 const databaseRoutes = require('./routes/databaseRoutes');
 const cors = require('cors');
 
+// configuration
+const mongodbUrl = "mongodb://localhost:27017/";
+const dbName = "w3villa";
+const port = 8000;
+
 // Initialize express
 const app = express();
 
@@ -16,9 +21,9 @@ app.use('/auth', authRoutes);
 app.use('/db', databaseRoutes);
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/w3villa').then(() => {
+mongoose.connect(mongodbUrl + dbName).then(() => {
     console.log('Mongodb connected...');
 }).catch(err => console.log(`error connecting to mongodb: ${err}`));
 
 // Start the server
-app.listen(8000, () => { console.log('Server is running on port 8000') });
+app.listen(port, () => { console.log('Server is running on port 8000') });
