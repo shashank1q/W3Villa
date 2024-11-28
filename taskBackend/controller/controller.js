@@ -40,7 +40,9 @@ function register(req, res) {
 function isValidToken(req, res) {
     // auth token from headers
     const token = req.headers.authorization.split(' ')[1];
-
+    if (token == 'null') {
+        return res.status(401).send('no token provided');
+    }
     const user = Auth.verifyToken(token);
     if (!user) {
         return res.status(401).send('Invalid token');
