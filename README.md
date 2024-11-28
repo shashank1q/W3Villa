@@ -1,5 +1,10 @@
 You need to run the project locally because I can host frontend code on github pages but can't host api on server for free.
 
+Video for setup:
+https://github.com/user-attachments/assets/869d330e-9081-4fc9-b9eb-a67d0e13609a
+
+
+
 Software required
 1. Flutter
 2. Node Js
